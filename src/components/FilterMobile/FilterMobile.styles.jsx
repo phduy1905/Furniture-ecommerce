@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   position: fixed;
-  top: 0;
+  top: var(--header-height);
   left: 0;
-  height: 100vh;
+  height: calc(100vh - var(--header-height));
   width: 100vw;
   background-color: #fff;
   z-index: 2;
