@@ -1,7 +1,7 @@
 import React from "react";
-import { Container } from "./ProductsList.styles";
+import { Container, LoadingContainer } from "./ProductsList.styles";
 import { useFilterContext } from "../../context/filter_context";
-import { GridView, ListView, Pagination } from "../../components";
+import { GridView, ListView, Loading, Pagination } from "../../components";
 import { paginate } from "../../utils/helpers";
 import { useState, useEffect } from "react";
 
@@ -26,13 +26,20 @@ export const ProductsList = () => {
   };
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return (
+      <LoadingContainer>
+        <Loading />
+      </LoadingContainer>
+    );
   }
 
   if (products.length < 1 || !products) {
-    return <h1>Sorry, no products matched your search</h1>;
+    return (
+      <LoadingContainer>
+        <h1>Sorry, no products matched your search :(</h1>
+      </LoadingContainer>
+    );
   }
-  console.log({ productsList });
   if (gridView) {
     return (
       <Container view="grid">

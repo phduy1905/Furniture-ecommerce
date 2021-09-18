@@ -10,9 +10,7 @@ export const Container = styled.section`
 
   ${tablet({
     flexDirection: "column",
-    paddingRight: "2rem",
-    paddingLeft: "2rem",
-    paddingBottom: "2rem",
+    padding: "2rem",
   })}
 
   position: relative;

@@ -52,6 +52,10 @@ ol[class] {
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Remove default margin */
 body,
 h1,

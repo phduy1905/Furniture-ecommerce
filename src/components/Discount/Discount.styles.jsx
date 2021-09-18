@@ -42,4 +42,6 @@ export const Title = styled.h3`
 export const Desc = styled.p`
   color: var(--text-color);
   font-size: 1.2rem;
+
+  ${tablet({ marginBottom: "var(--mb-1-5)" })}
 `;

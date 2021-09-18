@@ -40,7 +40,10 @@ export const Footer = () => {
           </IconsContainer>
         </Right>
       </Wrapper>
-      <div> &copy;2021 BNS.YY. All rights reserved</div>
+      <div className="copyrights">
+        {" "}
+        &copy;2021 <span>BNS.YY.</span> All rights reserved
+      </div>
     </Container>
   );
 };

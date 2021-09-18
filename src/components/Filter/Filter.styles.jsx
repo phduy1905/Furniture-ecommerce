@@ -4,6 +4,10 @@ export const Container = styled.div`
   background-color: #faf8f4;
   grid-column: center-start / col-end 2;
   padding: 2rem 1rem;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const Title = styled.h2`

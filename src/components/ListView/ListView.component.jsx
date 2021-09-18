@@ -24,7 +24,7 @@ export const ListView = ({ products }) => {
               <Name>{name}</Name>
               <Price>{formatNumber(price)}</Price>
               <Desc>{description.substring(0, 150) + "..."}</Desc>
-              <Button to={`/products/:${id}`}>view details</Button>
+              <Button to={`/products/${id}`}>view details</Button>
             </ProductInfo>
           </ProductItem>
         );

@@ -7,17 +7,20 @@ import {
   Discount,
   Carousel,
   Slider,
+  Hero,
+  ScrollTop,
 } from "../../components";
 
 export const HomePage = () => {
   return (
     <Container>
-      <Slider />
+      <Hero />
       <Story />
       <Features />
       <Gallery />
       <Discount />
       <Carousel />
+      <ScrollTop />
     </Container>
   );
 };

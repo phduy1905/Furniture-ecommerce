@@ -4,6 +4,11 @@ import {
   FETCH_PRODUCTS_START,
   FETCH_PRODUCTS_SUCCESS,
   FETCH_PRODUCTS_ERROR,
+  FETCH_SINGLE_PRODUCT_START,
+  FETCH_SINGLE_PRODUCT_SUCCESS,
+  FETCH_SINGLE_PRODUCT_ERROR,
+  GET_ITEM_FROM_STOCK,
+  RETURN_ITEM_TO_STOCK,
 } from "../actions";
 import React, { useEffect, useReducer } from "react";
 import { useContext } from "react";
@@ -18,6 +23,9 @@ const initialState = {
   products_loading: false,
   products_error: false,
   products: [],
+  single_product_loading: false,
+  single_product_error: false,
+  single_product: {},
 };
 
 export const ProductsProvider = ({ children }) => {
@@ -42,12 +50,40 @@ export const ProductsProvider = ({ children }) => {
     }
   };
 
+  const fetchSingleProduct = async (url) => {
+    dispatch({ type: FETCH_SINGLE_PRODUCT_START });
+    try {
+      const response = await axios.get(url);
+      const product = response.data;
+      dispatch({ type: FETCH_SINGLE_PRODUCT_SUCCESS, payload: product });
+    } catch (error) {
+      dispatch({ type: FETCH_SINGLE_PRODUCT_ERROR, payload: error });
+    }
+  };
+
+  const getItemFromStock = () => {
+    dispatch({ type: GET_ITEM_FROM_STOCK });
+  };
+
+  const returnItemToStock = () => {
+    dispatch({ type: RETURN_ITEM_TO_STOCK });
+  };
+
   useEffect(() => {
     fetchProducts(products_url);
   }, []);
 
   return (
-    <ProductsContext.Provider value={{ ...state, openSidebar, closeSidebar }}>
+    <ProductsContext.Provider
+      value={{
+        ...state,
+        openSidebar,
+        closeSidebar,
+        fetchSingleProduct,
+        getItemFromStock,
+        returnItemToStock,
+      }}
+    >
       {children}
     </ProductsContext.Provider>
   );

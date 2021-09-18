@@ -10,7 +10,7 @@ const LogoContainer = styled(Link)`
 `;
 
 const Logo = () => {
-  return <LogoContainer to="/">Yudmaph</LogoContainer>;
+  return <LogoContainer to="/">BNS.YY</LogoContainer>;
 };
 
 export default Logo;

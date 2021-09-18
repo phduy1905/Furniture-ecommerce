@@ -25,7 +25,7 @@ export const Story = () => {
           of BNS service studied to meet the demand for customise furniture, as
           in an alelier.
         </StoryText>
-        <SecondaryButton>move</SecondaryButton>
+        <SecondaryButton url="/about">move</SecondaryButton>
       </StoryContent>
     </Container>
   );

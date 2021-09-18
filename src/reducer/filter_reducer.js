@@ -5,6 +5,10 @@ import {
   UPDATE_FILTER,
   FILTER_PRODUCTS,
   CLEAR_FILTER,
+  SORT_PRODUCTS,
+  UPDATE_SORT,
+  FILTER_MOBILE_OPEN,
+  FILTER_MOBILE_CLOSE,
 } from "../actions";
 import { paginate } from "../utils/helpers";
 
@@ -33,6 +37,53 @@ const filter_reducer = (state, action) => {
       return {
         ...state,
         gridView: false,
+      };
+
+    case FILTER_MOBILE_OPEN:
+      return {
+        ...state,
+        filter_mobile_open: true,
+      };
+
+    case FILTER_MOBILE_CLOSE:
+      return {
+        ...state,
+        filter_mobile_open: false,
+      };
+
+    case SORT_PRODUCTS:
+      const { sort, filtered_products } = state;
+      let temp_products = [...filtered_products];
+      if (sort === "price-lowest") {
+        temp_products = temp_products.sort(
+          (a, b) => parseFloat(a.price) - parseFloat(b.price)
+        );
+      }
+      if (sort === "price-highest") {
+        temp_products = temp_products.sort(
+          (a, b) => parseFloat(b.price) - parseFloat(a.price)
+        );
+      }
+      if (sort === "name-a") {
+        temp_products = temp_products.sort((a, b) =>
+          a.name.localeCompare(b.name)
+        );
+      }
+      if (sort === "name-z") {
+        temp_products = temp_products.sort((a, b) =>
+          b.name.localeCompare(a.name)
+        );
+      }
+      return {
+        ...state,
+        filtered_products: temp_products,
+        productsPerPage: paginate(temp_products),
+      };
+
+    case UPDATE_SORT:
+      return {
+        ...state,
+        sort: action.payload,
       };
 
     case FILTER_PRODUCTS:

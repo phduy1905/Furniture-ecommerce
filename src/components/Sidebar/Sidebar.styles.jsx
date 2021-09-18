@@ -10,7 +10,7 @@ export const Container = styled.div`
   top: 0;
   left: 0;
   background: white;
-  z-index: 2;
+  z-index: 4;
   transform: translateX(-100%);
   transition: all 0.4s;
   &.sidebar-show {

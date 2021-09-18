@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Container,
   Wrapper,
@@ -16,22 +16,42 @@ import { Badge } from "@material-ui/core";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import MenuOpenIcon from "@material-ui/icons/MenuOpen";
 import { useProductsContext } from "../../context/products_context";
-import { Link } from "react-router-dom";
+import { useCartContext } from "../../context/cart_context";
+import { useHistory, useLocation } from "react-router";
 
 export const Navbar = () => {
   const { openSidebar } = useProductsContext();
+  const { total_items } = useCartContext();
+  const history = useHistory();
+  const location = useLocation();
 
+  const { pathname } = location;
+  const [navbarBg, setNavbarBg] = useState(false);
+
+  const changeBg = () => {
+    if (window.scrollY >= 80) {
+      setNavbarBg(true);
+    } else {
+      setNavbarBg(false);
+    }
+  };
+
+  window.addEventListener("scroll", changeBg);
   return (
-    <Container>
+    <Container pathname={pathname} className={`${navbarBg ? "scroll" : ""}`}>
       <Wrapper>
         <LogoContainer to="/">
-          <Logo>YUDMAHP</Logo>
+          <Logo>BSN.YY</Logo>
         </LogoContainer>
         <MenuContainer>
           {links.map((link) => {
             const { id, url, text } = link;
             return (
-              <MenuLink key={id} to={`/${url}`}>
+              <MenuLink
+                key={id}
+                onClick={() => history.push(`${url}`)}
+                className={`${pathname === url ? "active" : ""}`}
+              >
                 {text}
               </MenuLink>
             );
@@ -39,9 +59,9 @@ export const Navbar = () => {
         </MenuContainer>
         <RightContainer>
           <SignIn>sign in</SignIn>
-          <CartContainer>
-            <Badge badgeContent={4} color="secondary">
-              <ShoppingCartIcon />
+          <CartContainer onClick={() => history.push("/cart")}>
+            <Badge badgeContent={total_items} color="secondary">
+              <ShoppingCartIcon style={{ fill: "#fff" }} />
             </Badge>
           </CartContainer>
           <SidebarIconContainer onClick={openSidebar}>

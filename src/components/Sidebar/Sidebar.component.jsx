@@ -25,12 +25,12 @@ export const Sidebar = () => {
       <MenuList>
         {links.map(({ id, text, url }) => {
           return (
-            <MenuLink key={id} to={`${url}`}>
+            <MenuLink key={id} to={`${url}`} onClick={closeSidebar}>
               <MenuItem>{text}</MenuItem>
             </MenuLink>
           );
         })}
-        <MenuLink to="/signin">
+        <MenuLink to="/signin" onClick={closeSidebar}>
           <MenuItem>Sign In</MenuItem>
         </MenuLink>
       </MenuList>

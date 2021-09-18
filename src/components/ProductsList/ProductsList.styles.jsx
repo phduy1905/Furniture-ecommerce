@@ -4,6 +4,13 @@ export const Container = styled.div`
   /* position: relative; */
 `;
 
+export const LoadingContainer = styled.div`
+  height: calc(100vh - var(--header-height));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const ButtonsContainer = styled.div`
   position: absolute;
   left: 50%;

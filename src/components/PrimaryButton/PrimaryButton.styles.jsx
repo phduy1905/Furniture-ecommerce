@@ -11,6 +11,10 @@ export const Button = styled.button`
   overflow: hidden;
   position: relative;
   transition: all 0.3s;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: var(--h3-font-size);
+  border-radius: 3px;
 
   &::after {
     background-color: #fd9d89;

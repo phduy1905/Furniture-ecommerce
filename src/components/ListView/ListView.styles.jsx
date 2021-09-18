@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { mobile } from "../../responsive";
 
 export const Container = styled.div`
   padding: 0 1rem;
@@ -10,13 +11,20 @@ export const ProductItem = styled.div`
   column-gap: 1rem;
   margin-bottom: var(--mb-1);
   align-items: center;
+
+  ${mobile({
+    flexDirection: "column",
+    alignItems: "flex-start",
+  })}
 `;
 
 export const Img = styled.img`
   height: 200px;
   min-width: 300px;
-  /* width: 100%; */
+  width: 100%;
   object-fit: cover;
+
+  ${mobile({ width: "30vw" })}
 `;
 
 export const ProductInfo = styled.div``;

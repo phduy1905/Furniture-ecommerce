@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { tablet } from "../../responsive";
+import { mobile } from "../../responsive";
 export const Container = styled.div`
   margin-top: var(--header-height);
   display: grid;
@@ -15,9 +15,13 @@ export const Right = styled.div`
   grid-column: col-start 3 / center-end;
   padding-bottom: 8rem;
   position: relative;
+
+  ${mobile({ gridColumn: "center-start/ center-end" })}
 `;
 
 export const FilterSide = styled.div`
   grid-column: full-start / span 1;
   background-color: #faf8f4;
+
+  ${mobile({ display: "none" })}
 `;

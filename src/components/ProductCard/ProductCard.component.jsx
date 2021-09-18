@@ -16,7 +16,7 @@ export const ProductCard = ({ product }) => {
     <Container>
       <ImgContainer>
         <Img src={image} />
-        <View to={`/products/:${id}`}>view details</View>
+        <View to={`/products/${id}`}>view details</View>
       </ImgContainer>
       <Footer>
         <Name>{name}</Name>

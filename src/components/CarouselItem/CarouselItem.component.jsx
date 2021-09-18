@@ -10,17 +10,19 @@ import {
   Title,
   Price,
 } from "./CarouselItem.styles";
-import AddIcon from "@material-ui/icons/Add";
+import SearchIcon from "@material-ui/icons/Search";
 import { formatNumber } from "../../utils/helpers";
+import { useHistory } from "react-router";
 
 const CarouselItem = ({ product }) => {
   const { id, name, price, image, description } = product;
+  const history = useHistory();
   return (
     <Container>
       <ImgContainer>
         <Img src={image}></Img>
-        <AddButton>
-          <AddIcon />
+        <AddButton onClick={() => history.push(`/products/${id}`)}>
+          <SearchIcon />
         </AddButton>
       </ImgContainer>
       <InfoContainer>

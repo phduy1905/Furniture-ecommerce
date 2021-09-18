@@ -29,7 +29,16 @@ export const Filter = () => {
     updateFilter,
     clearFilter,
     all_products: products,
-    filters: { category, color, price, min_price, max_price, free_shipping },
+    filters: {
+      text,
+      category,
+      color,
+      price,
+      company,
+      min_price,
+      max_price,
+      free_shipping,
+    },
   } = useFilterContext();
 
   const [priceValue, setPriceValue] = useState(price);
@@ -49,13 +58,14 @@ export const Filter = () => {
   const categories = getUniqueValues(products, "category") || [];
 
   return (
-    <Container>
+    <Container className="show">
       <Title>Filter</Title>
       <Form onSubmit={(e) => e.preventDefault()}>
         <FormControl style={{ position: "relative" }}>
           <Input
             type="text"
             name="text"
+            value={text}
             placeholder="Product name"
             onChange={(e) => updateFilter(e)}
           />
@@ -85,7 +95,11 @@ export const Filter = () => {
 
         <FormControl>
           <InputTitle>Company</InputTitle>
-          <Select name="company" onChange={(e) => updateFilter(e)}>
+          <Select
+            name="company"
+            value={company}
+            onChange={(e) => updateFilter(e)}
+          >
             {companies.map((company, index) => {
               return (
                 <Option key={index} value={company}>

@@ -11,6 +11,8 @@ import {
   FILTER_PRODUCTS,
   SORT_PRODUCTS,
   CLEAR_FILTER,
+  FILTER_MOBILE_OPEN,
+  FILTER_MOBILE_CLOSE,
 } from "../actions";
 const initialState = {
   filtered_products: [],
@@ -19,6 +21,7 @@ const initialState = {
   gridView: true,
   sort: "price-lowest",
   productsPerPage: [],
+  filter_mobile_open: false,
   filters: {
     text: "",
     category: "all",
@@ -43,6 +46,7 @@ export const FilterProvider = ({ children }) => {
 
   useEffect(() => {
     dispatch({ type: FILTER_PRODUCTS });
+    dispatch({ type: SORT_PRODUCTS });
   }, [state.filters, state.sort, products]);
 
   const setGridView = () => {
@@ -59,7 +63,6 @@ export const FilterProvider = ({ children }) => {
 
   const updateFilter = (e) => {
     let { name, value } = e.target;
-    console.log({ name, value });
     if (name === "price") {
       value = Number(e.target.value);
     }
@@ -70,9 +73,30 @@ export const FilterProvider = ({ children }) => {
     dispatch({ type: UPDATE_FILTER, payload: { name, value } });
   };
 
+  const updateSort = (e) => {
+    dispatch({ type: UPDATE_SORT, payload: e.target.value });
+  };
+
+  const openFilterMobile = () => {
+    dispatch({ type: FILTER_MOBILE_OPEN });
+  };
+
+  const closeFilterMobile = () => {
+    dispatch({ type: FILTER_MOBILE_CLOSE });
+  };
+
   return (
     <FilterContext.Provider
-      value={{ ...state, setGridView, setListView, updateFilter, clearFilter }}
+      value={{
+        ...state,
+        setGridView,
+        setListView,
+        updateFilter,
+        clearFilter,
+        updateSort,
+        openFilterMobile,
+        closeFilterMobile,
+      }}
     >
       {children}
     </FilterContext.Provider>

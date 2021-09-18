@@ -9,9 +9,11 @@ import {
   ViewContainer,
   Left,
   Right,
+  Filter,
 } from "./Sort.styles";
 import AppsIcon from "@material-ui/icons/Apps";
 import ViewListIcon from "@material-ui/icons/ViewList";
+import FilterListIcon from "@material-ui/icons/FilterList";
 import { useFilterContext } from "../../context/filter_context";
 
 export const Sort = () => {
@@ -19,6 +21,8 @@ export const Sort = () => {
     setGridView,
     setListView,
     gridView,
+    updateSort,
+    openFilterMobile,
     filtered_products: products,
   } = useFilterContext();
   return (
@@ -30,7 +34,7 @@ export const Sort = () => {
       </Left>
       <Right>
         <Form>
-          <Select name="sort" id="sort">
+          <Select name="sort" id="sort" onChange={(e) => updateSort(e)}>
             <Option value="price-lowest">Price (Lowest)</Option>
             <Option value="price-highest">Price (highest)</Option>
             <Option value="name-a">Name (A-Z)</Option>
@@ -44,6 +48,9 @@ export const Sort = () => {
           <GridView className={gridView && "active"} onClick={setGridView}>
             <AppsIcon />
           </GridView>
+          <Filter onClick={openFilterMobile}>
+            <FilterListIcon />
+          </Filter>
         </ViewContainer>
       </Right>
     </Container>

@@ -13,7 +13,7 @@ export const Discount = () => {
             play 20% off discount, quickly login it!
           </Desc>
         </Text>
-        <PrimaryButton>Log in</PrimaryButton>
+        <PrimaryButton url="/signin">Log in</PrimaryButton>
       </Wrapper>
     </Container>
   );
