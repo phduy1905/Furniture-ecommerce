@@ -26,6 +26,9 @@ export const CartItemContainer = styled.div`
 export const ItemRemove = styled.button`
   border: none;
   background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const ItemImgContainer = styled.div`
@@ -94,7 +97,10 @@ export const Quantity = styled.div`
     background: ${(props) => props.background};
     color: ${(props) => props.color};
     height: 35px;
+    width: 35px;
   }
+
+  ${mobile({ columnGap: "0.5rem" })}
 `;
 
 export const Amount = styled.span``;

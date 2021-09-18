@@ -58,7 +58,7 @@ export const Navbar = () => {
           })}
         </MenuContainer>
         <RightContainer>
-          <SignIn>sign in</SignIn>
+          <SignIn onClick={() => history.push("/signin")}>sign in</SignIn>
           <CartContainer onClick={() => history.push("/cart")}>
             <Badge badgeContent={total_items} color="secondary">
               <ShoppingCartIcon style={{ fill: "#fff" }} />
