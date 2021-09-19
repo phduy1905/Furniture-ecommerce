@@ -14,7 +14,7 @@ export const Features = () => {
   return (
     <Container>
       <Wrapper>
-        <Feature>
+        <Feature data-aos="fade-down">
           <FeatureIcon>
             <HouseIcon />
           </FeatureIcon>
@@ -26,7 +26,7 @@ export const Features = () => {
             vel modi.
           </FeatureText>
         </Feature>
-        <Feature>
+        <Feature data-aos="fade-down" data-aos-delay="300">
           <FeatureIcon>
             <AccountBalanceWalletIcon />
           </FeatureIcon>
@@ -38,7 +38,7 @@ export const Features = () => {
             vel modi.
           </FeatureText>
         </Feature>
-        <Feature>
+        <Feature data-aos="fade-down" data-aos-delay="500">
           <FeatureIcon>
             <SettingsPhoneIcon />
           </FeatureIcon>

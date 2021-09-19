@@ -12,10 +12,10 @@ import SecondaryButton from "../SecondaryButton/SecondaryButton.component";
 export const Story = () => {
   return (
     <Container>
-      <StoryImgContainer>
+      <StoryImgContainer data-aos="fade-right">
         <StoryImg src="https://images.pexels.com/photos/6707628/pexels-photo-6707628.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" />
       </StoryImgContainer>
-      <StoryContent>
+      <StoryContent data-aos="fade-left" data-aos-delay="300">
         <StoryTitle>Our story</StoryTitle>
         <StoryText>
           Contemporary classics that issue from the convergence of the most

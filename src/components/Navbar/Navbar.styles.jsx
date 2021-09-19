@@ -86,6 +86,10 @@ export const SignIn = styled.div`
   cursor: pointer;
 
   ${mobile({ display: "none" })}
+
+  &:hover {
+    opacity: 0.8;
+  }
 `;
 export const SidebarIconContainer = styled.div`
   display: none;
@@ -93,12 +97,9 @@ export const SidebarIconContainer = styled.div`
   justify-content: center;
   margin-left: 15px;
   cursor: pointer;
-
   svg {
     fill: #fff;
   }
-  &:hover {
-    opacity: 0.7;
-  }
+
   ${mobile({ display: "flex" })}
 `;

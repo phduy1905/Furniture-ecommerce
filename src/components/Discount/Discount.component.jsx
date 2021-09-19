@@ -6,7 +6,7 @@ export const Discount = () => {
   return (
     <Container>
       <Wrapper>
-        <Text>
+        <Text data-aos="fade-right">
           <Title>Log in of 20% discount</Title>
           <Desc>
             Among the activities, the purchase of the following products can

@@ -19,11 +19,10 @@ export const Carousel = () => {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 500,
     slidesToShow: 5,
     slidesToScroll: 3,
-    // centerMode: true,
-    // centerPadding: "20px",
+    speed: 200,
+
     responsive: [
       {
         breakpoint: 1024,

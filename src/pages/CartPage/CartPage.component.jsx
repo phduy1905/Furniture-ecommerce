@@ -17,8 +17,10 @@ import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 import { CartItem } from "../../components";
 import { formatNumber } from "../../utils/helpers";
 import { useCartContext } from "../../context/cart_context";
+import { useHistory } from "react-router";
 
 const CartPage = () => {
+  const history = useHistory();
   const { cart, clearCart, total_items, total_amount, shipping_fee } =
     useCartContext();
 
@@ -30,7 +32,6 @@ const CartPage = () => {
       </EmptyContainer>
     );
   }
-
   return (
     <Container>
       <Wrapper>
@@ -65,7 +66,9 @@ const CartPage = () => {
             <p>Order Total: </p>
             <span>{formatNumber(total_amount + shipping_fee)}</span>
           </TotalRow>
-          <Button>Log in to checkout</Button>
+          <Button onClick={() => history.push("/signin")}>
+            Log in to checkout
+          </Button>
         </TotalContainer>
       </Wrapper>
     </Container>

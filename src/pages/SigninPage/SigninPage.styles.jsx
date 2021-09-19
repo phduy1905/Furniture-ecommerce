@@ -13,7 +13,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem 2rem;
+  padding: 4rem 2rem;
 `;
 
 export const Wrapper = styled.div`
